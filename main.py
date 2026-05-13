@@ -9,10 +9,14 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "http://localhost:3002",
+        "https://balajidev-trac-frontend.onrender.com" 
+    ],
     allow_methods=["*"],
-    allow_headers=["*"],
-    allow_credentials=True
+    allow_headers=["*"]
 )
 database_models.Base.metadata.create_all(bind=engine)
 
