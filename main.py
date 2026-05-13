@@ -8,11 +8,12 @@ from sqlalchemy.orm import Session
 app = FastAPI()
 
 app.add_middleware(
-     CORSMiddleware,
-     allow_origins=["http://localhost:3000"],
-     allow_methods = ["*"]
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+    allow_credentials=True
 )
-
 database_models.Base.metadata.create_all(bind=engine)
 
 @app.get("/")
